@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conference Ticket Generator</title>
+    <link rel="stylesheet" href="./src/output.css" />
+  </head>
+
+  <body>
+    <main class="page-shell">
+      <img class="pattern pattern-top" src="./assets/images/pattern-squiggly-line-top.svg" alt="" />
+      <img class="pattern pattern-bottom" src="./assets/images/pattern-squiggly-line-bottom-desktop.svg" alt="" />
+      <img class="pattern pattern-circle circle-one" src="./assets/images/pattern-circle.svg" alt="" />
+      <img class="pattern pattern-circle circle-two" src="./assets/images/pattern-circle.svg" alt="" />
+
+      <header class="site-header">
+        <a href="./index.html" aria-label="Coding Conf home">
+          <img src="./assets/images/logo-full.svg" alt="Coding Conf" />
+        </a>
+      </header>
+
+      <section id="intro" class="intro">
+        <h1>
+          Your Journey to Coding Conf<br class="desktop-break" />
+          2025 Starts Here!
+        </h1>
+        <p>Secure your spot at next year's biggest coding conference.</p>
+      </section>
+
+      <form id="ticketForm" class="ticket-form" novalidate>
+        <div class="field-group">
+          <label for="avatar">Upload Avatar</label>
+
+          <div id="uploadArea" class="upload-area" tabindex="0" role="button" aria-label="Upload your photo" aria-controls="avatar">
+            <input type="file" id="avatar" name="avatar" accept="image/png,image/jpeg" hidden />
+
+            <div id="uploadPlaceholder" class="upload-placeholder">
+              <span class="upload-icon">
+                <img src="./assets/images/icon-upload.svg" alt="" />
+              </span>
+              <span>Drag and drop or click to upload</span>
+            </div>
+
+            <div id="uploadPreview" class="upload-preview" hidden>
+              <img id="avatarPreview" src="" alt="Avatar preview" />
+              <div class="upload-actions">
+                <button type="button" id="removeAvatar">Remove image</button>
+                <button type="button" id="changeAvatar">Change image</button>
+              </div>
+            </div>
+          </div>
+
+          <p id="avatarHint" class="field-hint">
+            <img src="./assets/images/icon-info.svg" alt="" />
+            Upload your photo (JPG or PNG, max size: 500KB).
+          </p>
+          <p id="avatarError" class="error-message" aria-live="polite"></p>
+        </div>
+
+        <div class="field-group">
+          <label for="fullName">Full Name</label>
+          <input id="fullName" name="fullName" type="text" placeholder="Your full name" autocomplete="name" required />
+          <p id="fullNameError" class="error-message" aria-live="polite"></p>
+        </div>
+
+        <div class="field-group">
+          <label for="email">Email Address</label>
+          <input id="email" name="email" type="email" placeholder="example@email.com" autocomplete="email" required />
+          <p id="emailError" class="error-message" aria-live="polite"></p>
+        </div>
+
+        <div class="field-group">
+          <label for="github">GitHub Username</label>
+          <input id="github" name="github" type="text" placeholder="@yourusername" autocomplete="username" required />
+          <p id="githubError" class="error-message" aria-live="polite"></p>
+        </div>
+
+        <button type="submit" class="generate-button">Generate My Ticket</button>
+      </form>
+
+      <section id="successView" class="success-view" aria-live="polite" hidden>
+        <div class="success-heading">
+          <h1>
+            Congrats,
+            <span id="successName">Your Name</span>!
+          </h1>
+          <h2>Your ticket is ready.</h2>
+          <p>
+            We've emailed your ticket to
+            <strong id="successEmail">your@email.com</strong>
+            and will send updates in the run up to the event.
+          </p>
+        </div>
+
+        <article class="ticket" aria-label="Your Coding Conf ticket">
+          <img class="ticket-pattern" src="./assets/images/pattern-ticket.svg" alt="" />
+
+          <div class="ticket-content">
+            <div class="ticket-main">
+              <img class="ticket-logo" src="./assets/images/logo-full.svg" alt="Coding Conf" />
+              <p class="ticket-date">Jan 31, 2025 / Austin, TX</p>
+            </div>
+
+            <div class="ticket-attendee">
+              <img id="ticketAvatar" class="ticket-avatar" src="./assets/images/image-avatar.jpg" alt="Attendee avatar" />
+
+              <div class="attendee-info">
+                <p id="ticketName" class="attendee-name">Your Name</p>
+                <p class="attendee-github">
+                  <img src="./assets/images/icon-github.svg" alt="" />
+                  <span id="ticketGithub">@yourusername</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <p id="ticketNumber" class="ticket-number">#01609</p>
+        </article>
+
+        <button type="button" id="resetForm" class="reset-button">Generate Another Ticket</button>
+      </section>
+
+      <footer class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io" target="_blank" rel="noreferrer">Frontend Mentor</a>. Coded by <a href="#">Syarifah Aisyah</a>.
+      </footer>
+    </main>
+
+    <script src="./src/script.js"></script>
+  </body>
+</html>
